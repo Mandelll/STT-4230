@@ -290,12 +290,12 @@ h4 {
   margin: 1.5rem 0 0.75rem 0; }
 
 h5 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 110% !important;
   margin: 1rem 0 0.2rem 0; }
 
 h6 {
-  font-size: 0.5rem;
+  font-size: 1rem;
   line-height: 110% !important;
   margin: 0.5rem 0 0.2rem 0; }
 
@@ -402,8 +402,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   background: #2053AB;
   color: #fff;
   text-align: center;
-  border-bottom: 1px solid #183f81;
-  padding: 1rem; }
+  /*border-bottom: 1px solid #183f81;*/
+  padding: 2rem; }
 
 #header a {
   display: inline-block; }
@@ -499,7 +499,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   border: 1px solid #ccc; }
 
 #body .padding {
-  padding: 1rem 4rem; }
+  padding: 1rem 3rem; }
 
 #body h1 + hr {
   margin-top: -1.7rem;
@@ -521,6 +521,9 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   vertical-align: middle;
   text-align: center; }
 
+#navigation label {
+  display: none; }
+  
 #body .nav:hover {
   background: #f7f7f7; }
 
@@ -531,9 +534,57 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   right: 0; }
 
 #body-inner {
-  max-width: 750px;
-  margin: auto;
-  margin-bottom: 5rem; }
+  max-width: 800px;
+  margin-bottom: 0;
+  margin-right: calc(300px + (100% - 300px - 800px) / 2);
+  margin-left: calc((100% - 300px - 800px) / 2);
+}
+
+/* Inspired from https://github.com/vjeantet/hugo-theme-docdock/issues/144 */
+#TOC:before {
+    content: "Contenu de la page";
+    /*display: block;
+    text-align: center;*/
+    font-size: 1rem;
+    font-weight: normal
+}
+
+#TOC {
+  padding: 1rem;
+  padding-top: calc(2rem - 12px);
+  font-size: smaller;
+  border: 3px solid #f6f6f6;
+  overflow: auto;
+  position: fixed;
+  right: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 300px;
+}
+
+/*
+#TOC {
+  border-top: 3px solid #f6f6f6;
+  padding: 1rem;
+  font-size: smaller;
+}
+*/
+  
+#TOC>ul {
+  list-style-type: none;
+  padding: 0 0 0 0.5rem;
+  margin: 1rem 0 1rem 0
+}
+
+#TOC>ul>li>ul {
+  list-style-type: none;
+  padding: 0 0 0.5rem 1rem
+}
+
+#TOC>ul>li>ul>li>ul {
+  list-style-type: none;
+  padding: 0 0 0 1rem
+}
 
 #chapter {
   display: flex;
@@ -579,7 +630,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Lato", "Work Sans Bold", "Helvetica Bold", "Tahoma Bold", "Geneva Bold", "Arial Bold", sans-serif;
   text-rendering: optimizeLegibility;
-  color: #060606;
+  color: #323232;
   font-weight: 400;
   letter-spacing: -1px; }
 
@@ -938,7 +989,7 @@ td {
   border-right-color: rgba(0, 0, 0, 0.8); }
 
 #footer {
-  min-height: 3s0px; }
+  min-height: 30px; }
 
 .highlightable {
   padding: 0rem 0 0rem;
@@ -1027,7 +1078,10 @@ td {
 #top-bar {
   background: #f7f7f7;
   border-radius: 2px;
-  margin: 0rem -1rem 2rem;
+  margin-top: 0;
+  margin-right: 300px;
+  margin-bottom: 2rem;
+  margin-left: 0;
   padding: 0 1rem;
   height: 0;
   min-height: 3rem; }
@@ -1169,7 +1223,8 @@ pre .copy-to-clipboard:hover {
     right: 0.6rem;
     top: 0.7rem;
     font-size: 80%; }
-  #sidebar .parent li, #sidebar .active li {
+  #sidebar .parent li,
+  #sidebar .active li {
     border-left: 1px solid gray; }
   #sidebar h5.parent a {
     background: #201b24;
@@ -1182,7 +1237,8 @@ pre .copy-to-clipboard:hover {
   #sidebar h5 + ul.topics {
     display: none;
     margin-top: 0; }
-  #sidebar h5.parent + ul.topics, #sidebar h5.active + ul.topics {
+  #sidebar h5.parent + ul.topics,
+  #sidebar h5.active + ul.topics {
     display: block; }
   #sidebar ul {
     list-style: none;
@@ -1209,7 +1265,8 @@ pre .copy-to-clipboard:hover {
       padding-bottom: 1rem; }
     #sidebar ul.topics ul ul {
       padding-bottom: 0; }
-    #sidebar ul.topics li.parent > ul, #sidebar ul.topics li.alwaysopen > ul, #sidebar ul li.active > ul {
+    #sidebar ul.topics li.parent > ul, #sidebar ul.topics li.alwaysopen > ul,
+	#sidebar ul li.active > ul {
       display: block; }
     #sidebar ul.topics > li > a {
       /*line-height: 2rem;
@@ -1335,7 +1392,7 @@ pre .copy-to-clipboard:hover {
     font-size: 2rem; } }
 @media only all and (max-width: 47.938em) {
   #sidebar-toggle-span {
-    display: inline; } }
+    display: inline; }}
 @media only all and (max-width: 59.938em) {
   #body .padding {
     position: static;
@@ -1377,6 +1434,55 @@ pre .copy-to-clipboard:hover {
 
   #body {
     margin-left: 230px; } }
+@media only all and (max-width: 1500px) {
+  #sidebar {
+    width: 20%; }
+
+  #body {
+    margin-left: 20%; }
+  
+  #TOC {
+    width: 20%; }
+    
+  #top-bar {
+    margin-right: 27%;}
+  
+  #body-inner {
+    margin-right: 27%;
+    margin-left: 0; }
+}
+@media only all and (max-width: 1200px) {
+  #TOC:before {
+    content: "Table des matières";
+  }
+    
+  #TOC {
+    padding: 1rem;
+    font-size: smaller;
+    overflow: visible;
+    padding: 1rem;
+    position: static;
+    right: auto;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%
+  }
+  
+  #TOC>ul {
+    padding: 0 0 0 0.5rem;
+    margin: 1rem 0 0 0
+  }
+  
+  #top-bar {
+    margin-right: 0;}
+    
+  #body-inner {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 @media only all and (max-width: 47.938em) {
   #sidebar {
     width: 230px;
@@ -1385,7 +1491,7 @@ pre .copy-to-clipboard:hover {
   #body {
     margin-left: 0;
     width: 100%; }
-
+    
   .sidebar-hidden {
     overflow: hidden; }
 
@@ -1404,18 +1510,45 @@ pre .copy-to-clipboard:hover {
     bottom: 0;
     z-index: 10;
     background: rgba(255, 255, 255, 0.5);
-    cursor: pointer; } }
+    cursor: pointer; }
+}
+
 @media print {
   #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span, .copy-to-clipboard {
     display: none; }
-
+  
   #navigation * {
     display: none;
     visibility: hidden; }
+    
+  #TOC:before {
+    content: "Table des matières";
+  }
+    
+  #TOC {
+    padding: 1rem;
+    font-size: smaller;
+    overflow: visible;
+    padding: 1rem;
+    position: static;
+    right: auto;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%
+  }
+  
+  #TOC>ul {
+    padding: 0 0 0 0.5rem;
+    margin: 1rem 0 0 0
+  }
 
   #body-inner {
-    margin-bottom: 0px; }
-
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  
   #footer, .footline {
     margin-top: 1px; }
 
@@ -1432,3 +1565,21 @@ pre .copy-to-clipboard:hover {
     margin-left: 0px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/*mes ajouts*/
+
+.toc-section-number::after {
+  content: " \00a0-\00a0 ";
+}
+
+.header-section-number::after {
+  content: " \00a0-\00a0 ";
+}
+
+p + ul {
+  margin-top: -6px;
+}
+
+.csl-right-inline {
+  padding-bottom: 1em;
+}

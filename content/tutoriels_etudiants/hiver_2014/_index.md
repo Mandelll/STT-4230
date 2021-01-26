@@ -1,8 +1,8 @@
 +++
 title = "Hiver 2014"
-weight = 5
+weight = 7
 +++
 
-{{%children depth="2"%}}
+{{<children depth="2">}}
 
     

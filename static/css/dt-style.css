@@ -1,0 +1,45 @@
+/* to remove style in tables */
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+/* to left align table captions */
+caption { 
+  display: table-caption;
+  text-align: left;
+}
+
+/* to diplay select widget inline, without bottom margin */
+select {
+  display: inline;
+  margin-bottom: 0;
+}
+
+/* to diplay search widget inline, without bottom margin */
+input[type="search"]{
+  width: auto;
+  display: inline;
+  margin-bottom: 0;
+}
+
+.column-left{
+  float: left;
+  width: 60%;
+  text-align: left;
+}
+.column-center{
+  display: inline-block;
+  width: 2%;
+  text-align: center;
+}
+.column-right{
+  float: right;
+  width: 38%;
+  text-align:left;
+}
